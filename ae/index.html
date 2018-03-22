@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Table</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"crossorigin="anonymous">
+</head>
+<body ng-app="myapp">
+       <!-- YOU DELETE ACTION AND YOU CAN SEE LISTS -->
+      <div ng-controller="mycont" class="container">
+        <form  name="myform" novalidate="novalidate" ng-submit="add()">
+             
+             <div>
+              <label for="">Name</label>
+              <input type="text" name="username" ng-model="username" required="" />
+              <span ng-show="myform.username.$dirty && myform.username.$invalid">
+                <span ng-show="myform.$error.required">Error for Name</span>
+              </span>
+             </div>
+
+
+             <div>
+              <label for="">Surname</label> 
+              <input type="text" name="usersurname" ng-model="usersurname" required="" />
+              <span ng-show="myform.usersurname.$dirty && myform.usersurname.$invalid">
+                <span ng-show="myform.$error.required">Error for Surname</span>
+              </span>
+             </div>
+              
+
+             <div>
+              <label for=""> E-mail</label> 
+              <input type="email" name="useremail" ng-model="useremail" required="" />
+              <span ng-show="myform.useremail.$dirty && myform.useremail.$invalid">
+                <span ng-show="myform.$error.required">Error for E-mail</span>
+                <span ng-show="myform.$error.email">Error for @ Symbol</span>
+              </span>
+             </div>
+             <input type="submit" ng-disabled="myform.username.$dirty && myform.username.$invalid || myform.useremail.$dirty && myform.useremail.$invalid || myform.usersurname.$dirty && myform.usersurname.$invalid || myform.$error.required">  
+
+        </form>
+
+        <div class="container">
+          <table class="table table-bordered">
+           <tr ng-repeat="item in arr">
+                <td>{{item.Name}}</td>
+                <td>{{item.Surname}}</td>
+                <td>{{item.mail}}</td>
+                <td><button ng-click="fordelet($index)">Delete</button></td>
+            </tr>
+          </table>
+        </div>
+       
+      </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+
+      <script src="app.js"> </script>
+</body>
+</html>
