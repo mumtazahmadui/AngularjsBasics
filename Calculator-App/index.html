@@ -1,0 +1,44 @@
+<html ng-app="calApp">
+<head>
+    <title>Calculator App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">  
+    
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+   
+</head>
+
+<body>
+ 
+    <div class="jumbotron">
+        <h1>Calculator App</h1>
+    </div>
+   
+    <div class="container" ng-controller="calculatorCtrl as cal">
+        <div style="float:left;display: inline-block">
+            <input type="text" ng-model="cal.num1" class="input"></input>
+            <span ng-bind="cal.selectedOperation"></span>
+            <input type="text" ng-model="cal.num2" class="input"></input>
+            <button ng-click="cal.compute();" class="btn btn-primary">=</button>
+
+            <div class="card" style="float:right;width:60px;margin-left:15px;height:60px" >
+                <div class="card-block">
+                    <span class="badge badge-success"  ng-bind="cal.resultValue"></span>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div style="clear: both;display: block;" class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" ng-click="cal.buttonCliked('+');">+</button>
+        <button type="button" class="btn btn-secondary" ng-click="cal.buttonCliked('-');">-</button>
+        <button type="button" class="btn btn-secondary" ng-click="cal.buttonCliked('*');">*</button>
+        <button type="button" class="btn btn-secondary" ng-click="cal.buttonCliked('/');">/</button>
+         </div>
+        
+    </div>
+</body>
+</html>
