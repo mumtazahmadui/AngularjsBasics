@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>angular</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body ng-app>
+  <h1>Angular JS</h1>
+  <h2>New Customer</h2>
+  <form ng-submit="customers.push(newCustomer); newCustomer={}">
+    <lable>Customer Name
+      <input ng-model="newCustomer.name" />
+    </label>
+    <button type="submit">Add</button>
+  </form>
+  
+  <h2>Current Customers</h2>
+  <p ng-hide="!!customers.length">No Customers yet</p>
+  <ol ng-init="customers=[]">
+    <li ng-repeat="customer in customers">{{customer.name}}
+      <a href="javascript:void(0);" ng-click="customers.splice($index,1)">x</a>
+    </li>
+  </ol>
+</body>
+</html>
