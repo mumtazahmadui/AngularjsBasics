@@ -1,0 +1,118 @@
+<html>
+	<head>
+		<title>Angular JS</title>
+		
+		<link href="my.css" type="text/css" rel="stylesheet">
+		<link href="bootstrap.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="jquery-ui.css"/>
+	</head>
+	
+	<body ng-app="myModule" id="mainWrapper">
+		<div ng-controller="myController">
+		<div class="mainContainer">
+			<div class="form-container form-horizontal" id="form" name="form">
+				<div name="completeForm">
+				
+					<form name="myForm">
+					
+						<div name="heading" class="heading lead">
+							User Registration Form
+						</div>
+						<div name="row" class="form-group col-md-12">
+							<label class="col-md-2">First Name: </label>
+							<input type="text" class="col-md-7 input-sm" ng-model="user.name">
+							<input type="hidden" ng-model="user.id">
+						</div>
+						
+						<div name="row" class="form-group col-md-12">
+							<label class="col-md-2">City: </label>
+							<input type="text"  class="col-md-7 input-sm" ng-model="user.city">
+						</div>
+						
+						<div name="row" class="form-group col-md-12">
+							<label class="col-md-2">Date of Joining: </label>
+							<input type="text"  class="col-md-7 input-sm" ng-model="user.doj" date-picker>
+						</div>
+						
+						<div name="row" class="form-group col-md-12">
+							<label class="col-md-2">Income: </label>
+							<input type="text" class="col-md-7 input-sm" ng-model="user.income" only-digits>
+						</div>
+						
+						<div name="row" class="form-group col-md-12">
+							<label class="col-md-2">Password: </label>
+							<input type="password"  class="col-md-7 input-sm" ng-model="user.pwd" id="pwd" name="pass" required>
+							<span ng-show="myForm.pass.$invalid && myForm.pass.$dirty">Password is required</span>
+						</div>
+						
+						<div name="row" class="form-group col-md-12">
+							<label class="col-md-2">Confirm Password: </label>
+							<input type="password"  name="cpass" class="col-md-7 input-sm" ng-model="user.cpwd" id="cpwd" text-compare="pwd" required>
+							<span style="color:red ; font-style:italic;" ng-show="myForm.cpass.$invalid && myForm.cpass.$dirty">
+								<span ng-show="myForm.cpass.$error.required">Confirm Password field is mandatory</span>
+								<span ng-show="myForm.cpass.$error.isMatch && !myForm.cpass.$error.required">Password Mismatch!</span>
+							</span>
+						</div>
+						
+						<div name="buttons">
+							<button type="button" class="btn bg-primary  btn-sm" ng-click="addUser()" ng-disabled="myForm.$invalid">Add User</button>
+							<button type="button" class="btn-warning btn-sm btn" ng-click="resetUser()" ng-disabled="myForm.$pristine"> Reset</button>
+						</div>
+					</form>
+			
+			
+					<div name="table-container">
+						<div name="heading" class="heading lead">
+							List Of Users
+						</div>
+						<table class="table table-hover table-condensed table-striped">
+							<div name="table-head">
+								<thead>
+									<tr class="active">
+										<th>Name</th>
+										<th>DOJ</th>
+										<th>City</th>
+										<th>Income</th>
+										<th width="100"></th>
+									</tr>							
+								</thead>						
+							</div>
+							<div name="table-body">
+								<tbody>
+									<tr ng-repeat="u in users">
+										<td>{{u.name}}</td>
+										<td>{{u.doj | date:'MM/dd/yyyy'}}</td>
+										<td>{{u.city | uppercase}}</td>
+										<td>{{u.income | currency : 'INR'}}</td>
+										<td>
+											<button type="button" class="bg-primary btn btn-sm" ng-click="editUser(u)">Edit User</button>
+											<button type="button" ng-click="deleteUser(u.id)" class="btn-danger btn btn-sm">Delete</button>
+										</td>
+									</tr>
+								</tbody>
+							</div>
+						</table>
+					</div>
+					
+					
+				</div>
+			</div>		
+		</div>
+		
+		<div name="copyright">
+			<copy-right style="color:gray; text-align:center; font-weight:BOLD;"><copy-right>
+		</div>	
+		<div name="time" style="color:gray; text-align:center; font-weight:BOLD;">
+		<span >{{currentDate | date: 'dd/MM/yyyy'}}</span><br>
+		<span >{{currentDate | date: 'HH:mm:ss a'}}</span> 
+		</div>
+		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+		<script src="user_controller2.js"></script>
+		<script src="user_service.js"></script>
+		
+	</body>
+	
+<html>

@@ -1,0 +1,47 @@
+.form
+
+{
+margin-left:30px;
+padding:5px;
+color:blue;
+}
+
+#mainWrapper
+{
+	background-color: #EBEBEB;
+	height:70%;
+}
+
+.mainContainer
+
+{
+	background-color: #B8B4FE;
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 5%;
+	font-family: Verdana, Geneva, sans-serif;
+	border-radius:9px;
+	padding:5px;
+}
+
+.form-container
+{
+	padding: 10px;
+	background-color: #D8D6FE;
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 2%;
+	border-radius:4px;
+}
+
+.heading
+{
+	background-color: #EBEAFF;
+	text-align: center;
+	font-family: inherit;
+	border-bottom: 2px solid #84C1FF;
+	padding: 10px;
+	margin-bottom:20px;
+	border-radius:5px;
+	font-weight:bold;
+}
